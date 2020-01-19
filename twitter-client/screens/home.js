@@ -236,7 +236,7 @@ export default class HomeScreen extends Component {
               <Icon name="ios-pin" />
             </Button>
             <Button transparent small>
-              <Icon name="ios-stats-outline" />
+              <Icon name="ios-stats" />
             </Button>
 
             <View style={{ flex: 1 }} />

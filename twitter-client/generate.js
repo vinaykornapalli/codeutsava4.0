@@ -9,6 +9,7 @@ module.exports = function() {
       return {
         id: index,
         user: {
+          id:faker.random.number(10),
           name: faker.name.findName(),
           username: faker.internet.userName(),
           avatar: faker.image.avatar(),
@@ -16,7 +17,8 @@ module.exports = function() {
           bio: faker.lorem.sentence(),
           location: faker.address.city(),
           following: faker.random.number(1000),
-          followers: faker.random.number(10000)
+          followers: faker.random.number(10000),
+          ip : "192.168.1.1",
         },
         time: faker.date.recent(10),
         tweetContent: faker.lorem.sentences(2),
@@ -35,6 +37,7 @@ module.exports = function() {
       };
     }),
     login: {
+      id: 123,
       username: "Batman",
       password: "bruce",
       name: "Batman",
@@ -42,6 +45,7 @@ module.exports = function() {
       location: "Gotham",
       following: 0,
       followers: 999,
+      ip : "192.168.1.1",
       cover:
         "http://awesomwallpaper.com/img2/D4996B4DDE3D3141/batman-minimalistic-dark-dc-comics-bat-grey-logos-simple-batman-logo.jpg",
       avatar:
@@ -51,6 +55,7 @@ module.exports = function() {
       return {
         id: index,
         user: {
+          id:faker.random.number(10),
           name: faker.name.findName(),
           username: faker.internet.userName(),
           avatar: faker.image.avatar(),
@@ -58,7 +63,9 @@ module.exports = function() {
           bio: faker.lorem.sentence(),
           location: faker.address.city(),
           following: faker.random.number(1000),
-          followers: faker.random.number(10000)
+          followers: faker.random.number(10000),
+          ip: "192.168.1.1"
+
         },
         time: faker.date.recent(10),
         tweetContent: faker.lorem.sentences(2),

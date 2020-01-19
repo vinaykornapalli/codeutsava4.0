@@ -1,4 +1,4 @@
-import { applyMiddleware, createStore } from "redux";
+import { applyMiddleware, createStore , compose } from "redux";
 import createSagaMiddleware from "redux-saga";
 
 import logger from "redux-logger";
@@ -11,7 +11,7 @@ import rootSaga from "./sagas/sagas";
 
 const sagaMiddleware = createSagaMiddleware();
 
-const store = createStore(reducer, applyMiddleware(sagaMiddleware));
+const store = createStore(reducer,compose(applyMiddleware(logger), applyMiddleware(sagaMiddleware)));
 
 sagaMiddleware.run(rootSaga);
 // const action = type => store.dispatch({ type });

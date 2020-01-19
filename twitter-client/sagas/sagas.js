@@ -118,42 +118,53 @@ const rootSaga = function* rootSaga() {
 export default rootSaga;
 
 const fetchTweetsData = () => {
-  return axios.get("http://1435edf1.ngrok.io/tweets").then(response => {
+  return axios.get("http://cc70e131.ngrok.io/tweets").then(response => {
     console.log(response);
     return response.data;
   });
 };
 
 const fetchTweetRepliesData = () => {
-  return axios.get("http://1435edf1.ngrok.io/tweetReplies").then(response => {
+  return axios.get("http://cc70e131.ngrok.io/tweetReplies").then(response => {
     console.log(response);
     return response.data;
   });
 };
 
 const fetchUserTweetsData = () => {
-  return axios.get("http://1435edf1.ngrok.io/userTweets").then(response => {
+  return axios.get("http://cc70e131.ngrok.io/userTweets").then(response => {
     console.log(response);
     return response.data;
   });
 };
 
 const attemptLogin = () => {
-  return axios.get("http://1435edf1.ngrok.io/login").then(response => {
-    return response.data;
+  return axios.get("http://cc70e131.ngrok.io/login").then(response => {
+    return response.data;user
   });
 };
 
 const postTweet = payload => {
-  return axios.post("http://1435edf1.ngrok.io/tweets", {
-    id: faker.random.number(100000),
-    time: new Date().toISOString(),
-    user: payload.user,
-    tweetContent: payload.tweetContent,
-    likes: 0,
-    retweets: 0,
-    replies: 0
-  });
+  console.log(payload)
+  axios.post("https://pysoul.pagekite.me/complaint",{
+    user_info : payload.user,
+    bully_text : payload.tweetContent,
+    time : new Date().toISOString(),
+  }, {
+    type : 'application/json'
+  }).then(res=>{
+    return axios.post("http://cc70e131.ngrok.io/tweets", {
+      id: faker.random.number(100000),
+      time: new Date().toISOString(),
+      user: payload.user,
+      tweetContent: payload.tweetContent,
+      likes: 0,
+      retweets: 0,
+      replies: 0
+    });
+  }).catch(e=>{
+    return e;
+  })
 };
 
 // const helloSaga = function* helloSaga() {
